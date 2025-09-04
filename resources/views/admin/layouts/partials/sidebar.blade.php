@@ -14,19 +14,19 @@
                 </ul>
             </div>
         </li>
-        <li class="mb-1">
+  <li class="mb-1">
             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="{{ request()->routeIs('admin.categories.index') || request()->routeIs('admin.categories.create') || request()->routeIs('admin.categories.edit') ? 'true' : 'false'}}">
                 Categories
             </button>
             <div class="collapse {{ request()->routeIs('admin.categories.index') || request()->routeIs('admin.categories.create') ||  request()->routeIs('admin.categories.edit') ? 'show' : ''}}" id="category-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.categories.index') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-list me-1"></i> All
                         </a>
                     </li>
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.categories.create') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-plus me-1"></i> New Category
                         </a>
                     </li>

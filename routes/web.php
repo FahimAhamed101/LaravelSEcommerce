@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -16,7 +17,16 @@ Route::middleware('admin')->prefix('admin')->group(function() {
     Route::get('dashboard', [AdminController::class,'index'])->name('admin.index');
     Route::post('admin/logout', [AdminController::class,'logout'])->name('admin.logout');
 
-
+ Route::resource('categories', CategoryController::class, [
+        'names' => [
+            'index' => 'admin.categories.index',
+            'create' => 'admin.categories.create',
+            'store' => 'admin.categories.store',
+            'edit' => 'admin.categories.edit',
+            'update' => 'admin.categories.update',
+            'destroy' => 'admin.categories.destroy',
+        ]
+    ]);
  
 
 
