@@ -14,7 +14,7 @@
                 </ul>
             </div>
         </li>
-  <li class="mb-1">
+        <li class="mb-1">
             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="{{ request()->routeIs('admin.categories.index') || request()->routeIs('admin.categories.create') || request()->routeIs('admin.categories.edit') ? 'true' : 'false'}}">
                 Categories
             </button>
@@ -40,12 +40,12 @@
             <div class="collapse {{ request()->routeIs('admin.subcategories.index') || request()->routeIs('admin.subcategories.create') || request()->routeIs('admin.subcategories.edit') ? 'show' : ''}}" id="subcategory-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.subcategories.index') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-layer-group me-1"></i> All
                         </a>
                     </li>
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.subcategories.create') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-plus me-1"></i> New Subcategory
                         </a>
                     </li>
@@ -59,12 +59,12 @@
             <div class="collapse {{ request()->routeIs('admin.childcategories.index') || request()->routeIs('admin.childcategories.create') || request()->routeIs('admin.childcategories.edit') ? 'show' : ''}}" id="childcategory-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.childcategories.index') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-table me-1"></i> All
                         </a>
                     </li>
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.childcategories.create') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-plus me-1"></i> New Child category
                         </a>
                     </li>
@@ -78,12 +78,12 @@
             <div class="collapse {{ request()->routeIs('admin.brands.index') || request()->routeIs('admin.brands.create') || request()->routeIs('admin.brands.edit') ? 'show' : ''}}" id="brand-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.brands.index') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-copyright me-1"></i> All
                         </a>
                     </li>
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.brands.create') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-plus me-1"></i> New Brand 
                         </a>
                     </li>
@@ -97,12 +97,12 @@
             <div class="collapse {{ request()->routeIs('admin.colors.index') || request()->routeIs('admin.colors.create') || request()->routeIs('admin.colors.edit') ? 'show' : ''}}" id="color-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.colors.index') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-palette me-1"></i> All
                         </a>
                     </li>
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.colors.create') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-plus me-1"></i> New Color 
                         </a>
                     </li>
@@ -116,12 +116,12 @@
             <div class="collapse {{ request()->routeIs('admin.sizes.index') || request()->routeIs('admin.sizes.create') || request()->routeIs('admin.sizes.edit') ? 'show' : ''}}" id="size-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.sizes.index') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-expand me-1"></i> All
                         </a>
                     </li>
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.sizes.create') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-plus me-1"></i> New Size 
                         </a>
                     </li>
@@ -135,12 +135,12 @@
             <div class="collapse {{ request()->routeIs('admin.products.index') || request()->routeIs('admin.products.create') || request()->routeIs('admin.products.edit') ? 'show' : ''}}" id="product-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.products.index') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-tag me-1"></i> All
                         </a>
                     </li>
                     <li>
-                        <a href="" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
+                        <a href="{{ route('admin.products.create') }}" class="link-body-emphasis d-inline-flex align-items-center text-decoration-none rounded">
                            <i class="fas fa-plus me-1"></i> New Product 
                         </a>
                     </li>

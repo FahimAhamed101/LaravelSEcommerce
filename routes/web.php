@@ -6,6 +6,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\ChildcategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ColorController;
+use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -64,6 +67,38 @@ Route::middleware('admin')->prefix('admin')->group(function() {
             'destroy' => 'admin.brands.destroy',
         ]
     ]);
-
+ //color routes
+    Route::resource('colors', ColorController::class, [
+        'names' => [
+            'index' => 'admin.colors.index',
+            'create' => 'admin.colors.create',
+            'store' => 'admin.colors.store',
+            'edit' => 'admin.colors.edit',
+            'update' => 'admin.colors.update',
+            'destroy' => 'admin.colors.destroy',
+        ]
+    ]);
+    //size routes
+    Route::resource('sizes', SizeController::class, [
+        'names' => [
+            'index' => 'admin.sizes.index',
+            'create' => 'admin.sizes.create',
+            'store' => 'admin.sizes.store',
+            'edit' => 'admin.sizes.edit',
+            'update' => 'admin.sizes.update',
+            'destroy' => 'admin.sizes.destroy',
+        ]
+    ]);
+    //product routes
+    Route::resource('products', ProductController::class, [
+        'names' => [
+            'index' => 'admin.products.index',
+            'create' => 'admin.products.create',
+            'store' => 'admin.products.store',
+            'edit' => 'admin.products.edit',
+            'update' => 'admin.products.update',
+            'destroy' => 'admin.products.destroy',
+        ]
+    ]);
 
 });
