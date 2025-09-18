@@ -9,9 +9,8 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\ProductController;
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\ProductController as FrontendProductController;
+
 /*****admin guest routes*******/
 Route::middleware('admin.guest')->group(function() {
     Route::get('admin/login', [AdminController::class,'login'])->name('admin.login');
@@ -102,3 +101,26 @@ Route::middleware('admin')->prefix('admin')->group(function() {
     ]);
 
 });
+
+
+Route::get('/', [FrontendProductController::class,'index'])->name('home');
+//filter products routes
+Route::get('show/{product}/product', [FrontendProductController::class,'show'])->name('products.show');
+Route::get('subcategory/{subcategory}/products', [FrontendProductController::class,'productsBySubcategory'])->name('subcategory.products');
+Route::get('childcategory/{childcategory}/products', [FrontendProductController::class,'productsByChildcategory'])->name('childcategory.products');
+Route::get('brand/{brand}/products', [FrontendProductController::class,'productsByBrand'])->name('brand.products');
+Route::get('color/{color}/products', [FrontendProductController::class,'productsByColor'])->name('color.products');
+Route::get('size/{size}/products', [FrontendProductController::class,'productsBySize'])->name('size.products');
+//search for products
+Route::get('search/products', [FrontendProductController::class,'searchProducts'])->name('search.products');
+//order products route
+Route::get('order/products', [FrontendProductController::class,'orderProducts'])->name('order.products');
+
+
+Route::middleware('guest')->group(function() {
+    Route::get('user/register', [FrontendUserController::class,'showRegisterForm'])->name('user.register');
+    Route::post('user/store', [FrontendUserController::class,'store'])->name('user.store');
+    Route::get('user/login', [FrontendUserController::class,'showLoginForm'])->name('login');
+    Route::post('user/auth', [FrontendUserController::class,'auth'])->name('user.auth');
+});
+Route::get('cart', [CartController::class,'index'])->name('cart.index');

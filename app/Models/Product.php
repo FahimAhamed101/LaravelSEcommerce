@@ -70,7 +70,13 @@ class Product extends Model
     }
 
   
-
+  public function reviews() : HasMany
+    {
+        return $this->hasMany(Review::class)
+            ->with('user')
+            ->where('approved',1)
+            ->latest();
+    }
   
 
     public function getRouteKeyName() : string
