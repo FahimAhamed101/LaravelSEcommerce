@@ -124,3 +124,4 @@ Route::middleware('guest')->group(function() {
     Route::post('user/auth', [FrontendUserController::class,'auth'])->name('user.auth');
 });
 Route::get('cart', [CartController::class,'index'])->name('cart.index');
+Route::post('add/cart', [CartController::class,'addToCart'])->name('cart.add');
