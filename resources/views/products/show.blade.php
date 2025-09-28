@@ -149,9 +149,9 @@
                                         <input 
                                             type="radio" 
                                             name="size" 
-                                            id="size-{{ $size->id }}"
+                                            id="size-{{ $size -> id }}"
                                             class="d-none"
-                                            value="{{ $size->name }}"
+                                            value="{{ $size -> name }}"
                                         >
                                         <label 
                                             for="size-{{ $size->id }}" 
@@ -164,22 +164,26 @@
                             <div class="mb-4">
                                 <h4 class="mb-2">Choose a color</h4>
                                 <div class="d-flex gap-2">
-                                    @foreach ($product->colors as $color)
-                                        <input 
-                                            type="radio" 
-                                            name="color" 
-                                            id="color-{{ $color->id }}"
-                                            class="d-none"
-                                            value="{{ $color->name }}"
-                                        >
-                                        <label 
-                                            for="color-{{ $color->id }}" 
-                                            class="color-option"
-                                            style="background-color:{{ $color->name }};"  
-                                            title="{{ ucfirst($color->name) }}"  
-                                        >
-                                        </label>
-                                    @endforeach
+                                 @foreach ($product->colors as $color)
+    <input 
+        type="radio" 
+        name="color" 
+        id="color-{{ $color->id }}"
+        value="{{ $color->id }}"
+        class="color-input"
+        @if($loop->first) checked @endif
+    >
+    <label 
+        for="color-{{ $color->id }}" 
+        class="color-option"
+        style="background-color:{{ $color->name }}; width:30px; height:30px;"
+        title="{{ $color->name }}"
+        aria-label="{{ $color->name }}"
+    >
+        <span class="sr-only">{{ $color->name }}</span>
+    </label>
+@endforeach
+                                     
                                 </div>
                             </div>
                             <div class="d-flex align-items-center gap-3">

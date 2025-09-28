@@ -69,15 +69,18 @@ class Product extends Model
         return $this->belongsToMany(Size::class);
     }
 
-  
-  public function reviews() : HasMany
+    public function orders() : BelongsToMany
+    {
+        return $this->belongsToMany(Order::class);
+    }
+
+    public function reviews() : HasMany
     {
         return $this->hasMany(Review::class)
             ->with('user')
             ->where('approved',1)
             ->latest();
     }
-  
 
     public function getRouteKeyName() : string
     {
@@ -100,5 +103,8 @@ class Product extends Model
         ])->exists();
     }
 
-   
+    public function avgRating()
+    {
+        return $this->reviews()->avg('rating');
+    }
 }

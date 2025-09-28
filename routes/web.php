@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProductController as FrontendProductController;
-
+use App\Http\Controllers\CartController;
 /*****admin guest routes*******/
 Route::middleware('admin.guest')->group(function() {
     Route::get('admin/login', [AdminController::class,'login'])->name('admin.login');
