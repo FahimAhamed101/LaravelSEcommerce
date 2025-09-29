@@ -169,7 +169,7 @@
         type="radio" 
         name="color" 
         id="color-{{ $color->id }}"
-        value="{{ $color->id }}"
+        value="{{ $color->name }}"
         class="color-input"
         @if($loop->first) checked @endif
     >

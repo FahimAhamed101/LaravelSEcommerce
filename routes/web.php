@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\SizeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProductController as FrontendProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController as FrontendUserController;
+use App\Http\Controllers\CheckoutController;
+
 /*****admin guest routes*******/
 Route::middleware('admin.guest')->group(function() {
     Route::get('admin/login', [AdminController::class,'login'])->name('admin.login');
@@ -123,5 +126,30 @@ Route::middleware('guest')->group(function() {
     Route::get('user/login', [FrontendUserController::class,'showLoginForm'])->name('login');
     Route::post('user/auth', [FrontendUserController::class,'auth'])->name('user.auth');
 });
-Route::get('cart', [CartController::class,'index'])->name('cart.index');
+//cart routes
 Route::post('add/cart', [CartController::class,'addToCart'])->name('cart.add');
+Route::get('cart', [CartController::class,'index'])->name('cart.index');
+Route::post('update/cart', [CartController::class,'updateCartItem'])->name('cart.update');
+Route::post('remove/cart', [CartController::class,'removeCartItem'])->name('cart.remove');
+Route::post('clear/cart', [CartController::class,'clearCart'])->name('cart.clear');
+
+
+Route::middleware('auth')->group(function() {
+ //user routes
+    Route::post('user/logout', [FrontendUserController::class,'logout'])->name('user.logout');
+    Route::get('user/profile', [FrontendUserController::class,'showProfilePage'])->name('user.profile');
+    Route::put('update/profile/image', [FrontendUserController::class,'updateUserProfileImage'])->name('profile.image');
+    Route::put('update/user/data', [FrontendUserController::class,'updateUserData'])->name('user.data');
+    Route::get('user/orders', [FrontendUserController::class,'showUserOrdersPage'])->name('user.orders');
+    //checkout routes
+    Route::get('checkout', [CheckoutController::class,'index'])->name('checkout.index');
+    //coupon routes
+    Route::post('apply/coupon', [CheckoutController::class,'applyCoupon'])->name('apply.coupon');
+    Route::get('remove/coupon', [CheckoutController::class,'removeCoupon'])->name('remove.coupon');
+    //order routes
+    Route::get('order/pay', [FrontendOrderController::class,'payOrderByStripe'])->name('order.pay');
+    Route::get('success/pay', [FrontendOrderController::class,'successPaid'])->name('order.success');
+    //review routes
+    Route::post('review/store', [FrontendReviewController::class,'store'])->name('review.store');
+   
+});
