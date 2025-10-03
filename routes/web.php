@@ -13,7 +13,7 @@ use App\Http\Controllers\ProductController as FrontendProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController as FrontendUserController;
 use App\Http\Controllers\CheckoutController;
-
+use App\Http\Controllers\OrderController as FrontendOrderController;
 /*****admin guest routes*******/
 Route::middleware('admin.guest')->group(function() {
     Route::get('admin/login', [AdminController::class,'login'])->name('admin.login');
