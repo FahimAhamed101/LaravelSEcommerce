@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center py-2" href="{{ route('orders.index') }}">
+                            <a class="dropdown-item d-flex align-items-center py-2" href="{{ route('user.orders') }}">
                                 <i class="fas fa-shopping-bag me-3 text-success"></i>
                                 <span>My Orders</span>
                             </a>

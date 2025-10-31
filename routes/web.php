@@ -103,6 +103,10 @@ Route::middleware('admin')->prefix('admin')->group(function() {
         ]
     ]);
 
+ Route::get('orders', [OrderController::class,'index'])->name('admin.orders.index');
+
+
+
 });
 
 
