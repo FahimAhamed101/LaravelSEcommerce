@@ -14,6 +14,10 @@
             "src": "/frontend/asset/css/(.*)",
             "dest": "/public/frontend/asset/css/"
         },
+         {
+            "src": "/storage/(.*)",
+            "dest": "/storage/images/"
+        },
         {
             "src": "/frontend/asset/js/(.*)",
             "dest": "/public/frontend/asset/js/"
