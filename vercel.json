@@ -16,7 +16,7 @@
         },
          {
             "src": "/storage/(.*)",
-            "dest": "/storage/images/products/"
+            "dest": "/public/storage/images/products/"
         },
         {
             "src": "/frontend/asset/js/(.*)",
